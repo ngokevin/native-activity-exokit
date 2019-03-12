@@ -1,0 +1,62 @@
+{
+  "stringTable": {
+    "0": "/home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86_64",
+    "1": "--target=x86_64-none-linux-android21 --gcc-toolchain=/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dnative_activity_EXPORTS -I/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/node_modules/nan -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/deps/exokit-bindings/util/include -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/.node-gyp/11.10.1/include/node -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++ -std=gnu++11 -Wall -Werror -O0 -fno-limit-debug-info -fPIC",
+    "2": "--target=x86_64-none-linux-android21 --gcc-toolchain=/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/node_modules/nan -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/deps/exokit-bindings/util/include -isystem /home/chris/github/native-activity-exokit/app/src/main/cpp/.node-gyp/11.10.1/include/node -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC",
+    "3": "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC   -system /home/chris/github/native-activity-exokit/app/src/main/cpp/node_modules/nan -system /home/chris/github/native-activity-exokit/app/src/main/cpp/deps/exokit-bindings/util/include -system /home/chris/github/native-activity-exokit/app/src/main/cpp/.node-gyp/11.10.1/include/node"
+  },
+  "buildFiles": [
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/chris/github/native-activity-exokit/app/src/main/cpp/CMakeLists.txt",
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake"
+  ],
+  "cleanCommands": [
+    "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86_64 --target clean"
+  ],
+  "libraries": {
+    "native_app_glue-Debug-x86_64": {
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86_64 --target native_app_glue",
+      "buildType": "debug",
+      "toolchain": "2396810048",
+      "abi": "x86_64",
+      "artifactName": "native_app_glue",
+      "files": [
+        {
+          "src": "/home/chris/github/native-activity-exokit/app/src/main/cpp/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86_64/libnative_app_glue.a"
+    },
+    "native-activity-Debug-x86_64": {
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86_64 --target native-activity",
+      "buildType": "debug",
+      "toolchain": "2396810048",
+      "abi": "x86_64",
+      "artifactName": "native-activity",
+      "files": [
+        {
+          "src": "/home/chris/github/native-activity-exokit/app/src/main/cpp/main.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86_64/libnative-activity.so"
+    }
+  },
+  "toolchains": {
+    "2396810048": {
+      "cCompilerExecutable": "/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+      "cppCompilerExecutable": "/home/chris/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

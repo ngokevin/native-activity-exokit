@@ -1,0 +1,24 @@
+{
+  "buildFiles": [
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/chris/github/native-activity-exokit/app/src/main/cpp/CMakeLists.txt",
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake"
+  ],
+  "cleanCommands": [
+    "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "native_app_glue-Debug-armeabi-v7a": {
+      "artifactName": "native_app_glue",
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target native_app_glue",
+      "abi": "armeabi-v7a",
+      "output": "/home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/armeabi-v7a/libnative_app_glue.a"
+    },
+    "native-activity-Debug-armeabi-v7a": {
+      "artifactName": "native-activity",
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/armeabi-v7a --target native-activity",
+      "abi": "armeabi-v7a",
+      "output": "/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-activity.so"
+    }
+  }
+}

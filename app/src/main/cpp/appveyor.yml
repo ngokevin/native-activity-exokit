@@ -1,0 +1,91 @@
+version: 0.0.{build}
+
+# Test against the latest version of this Node.js version
+image:
+  Visual Studio 2017
+environment:
+  nodejs_version: "11"
+  PFX_KEY:
+    secure: rb5g/ykqdQek473qm/8WbnEQ6ItBfgcL1/ShqAMWLTH5+Z3Y45MHN2BB3UXdx067
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version x64
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+
+after_test:
+  - ps: |
+      wget "https://nodejs.org/dist/v11.6.0/node-v11.6.0-win-x64.zip" -OutFile node.zip
+      7z x node.zip
+      rm node.zip
+      mv node-v11.6.0-win-x64 node
+      $env:Path = "$pwd\node;$env:Path";
+      .\node\npm install --no-optional
+      $env:TEST_ENV = 'ci'
+      .\node\npm run test
+      # bash scripts/testRun.sh
+      set version "$env:APPVEYOR_REPO_TAG_NAME"
+      if ([string]::IsNullOrEmpty("$version")) { set version "$env:APPVEYOR_REPO_COMMIT".Substring(0, 8) }
+      mkdir dist
+      .\buildtools\iscc "$pwd\metadata\exokit.iss" "/dMyAppVersion=$version" /odist /qp
+      mv dist\*.exe exokit-win-x64.exe
+      rm -R -fo dist
+      & "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.1A/Bin/SignTool.exe" sign /f .\metadata\codesign-windows.pfx /t http://timestamp.comodoca.com/authenticode /p "$env:PFX_KEY" exokit-win-x64.exe
+      7z a exokit-windows-full.zip * -xr'!.git' -xr'!buildtools' -xr'!exokit-win-x64.exe'
+      rm -r -fo node
+      7z a exokit-windows.zip * -xr'!.git' -xr'!buildtools' -xr'!exokit-win-x64.exe' -xr'!exokit-windows-full.zip'
+
+artifacts:
+  - path: "exokit-windows.zip"
+    name: exokit-windows
+  - path: "exokit-windows-full.zip"
+    name: exokit-windows-full
+  - path: "exokit-win-x64.exe"
+    name: exokit-windows-installer
+
+deploy:
+  - provider: GitHub
+    description: 'Exokit git'
+    auth_token:
+      secure: qQU6Qfie9FkYGW1inshRh/P37b5KRsA4fGM4GjqRm8PlBlt1nSIctc5tXIq6WeyY
+    artifact: "exokit-windows.zip"
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
+  - provider: GitHub
+    description: 'Exokit git'
+    auth_token:
+      secure: qQU6Qfie9FkYGW1inshRh/P37b5KRsA4fGM4GjqRm8PlBlt1nSIctc5tXIq6WeyY
+    artifact: "exokit-windows-full.zip"
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
+  - provider: GitHub
+    description: 'Exokit installer'
+    auth_token:
+      secure: qQU6Qfie9FkYGW1inshRh/P37b5KRsA4fGM4GjqRm8PlBlt1nSIctc5tXIq6WeyY
+    artifact: "exokit-win-x64.exe"
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true
+
+notifications:
+  - provider: Slack
+    auth_token:
+      secure: 45CGZx1wukHisNzZTeLLrdh/drSuJqO3uRJ7nxgon5RBePIM0QLR7lUKX16kPgzb9wAYgGt7A9E+ph8V9eFg+vkPoBZaIiV6GaS0PG3Xa1o=
+    channel: '#builds'
+    on_build_success: false
+    on_build_failure: true
+    on_build_status_changed: true
+
+# Don't actually build.
+build: off

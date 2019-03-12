@@ -1,0 +1,24 @@
+{
+  "buildFiles": [
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/home/chris/github/native-activity-exokit/app/src/main/cpp/CMakeLists.txt",
+    "/home/chris/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake"
+  ],
+  "cleanCommands": [
+    "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/release/x86 --target clean"
+  ],
+  "libraries": {
+    "native_app_glue-Release-x86": {
+      "artifactName": "native_app_glue",
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/release/x86 --target native_app_glue",
+      "abi": "x86",
+      "output": "/home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/release/x86/libnative_app_glue.a"
+    },
+    "native-activity-Release-x86": {
+      "artifactName": "native-activity",
+      "buildCommand": "/home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake --build /home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/release/x86 --target native-activity",
+      "abi": "x86",
+      "output": "/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/release/obj/x86/libnative-activity.so"
+    }
+  }
+}
