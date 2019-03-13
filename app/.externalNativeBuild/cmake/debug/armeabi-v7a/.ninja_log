@@ -1,8 +1,0 @@
-# ninja log v5
-0	82	1552344356	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	98eb4c78a28b5664
-82	95	1552344356	libnative_app_glue.a	118157d790a3bc82
-0	299	1552344357	CMakeFiles/native-activity.dir/main.cpp.o	b564163be47e4340
-299	327	1552344357	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-activity.so	b2feecedb112ad9b
-0	16	1552426853	CMakeFiles/native-activity.dir/main.cpp.o	255e3c81eff4464c
-16	125	1552426854	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-activity.so	2d31f7720a99a01f
-0	139	1552427229	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-activity.so	50376a22b26e7673
