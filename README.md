@@ -2,8 +2,8 @@ Native Activity
 ===============
 
 ```
-cd app/src/main/cpp
-npm run install
+npm run install --prefix app/src/main.cpp
+./gradlew build
 ```
 
 Native Activity is an Android sample that initializes a GLES 2.0 context and reads accelerometer data from C code using [Native Activity](http://developer.android.com/reference/android/app/NativeActivity.html).
