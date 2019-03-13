@@ -6,6 +6,6 @@
     "install": "npm install --ignore-scripts"
   },
   "dependencies": {
-    "exokit": "0.0.517"
+    "exokit": "github:ngokevin/exokit#android3"
   }
 }
