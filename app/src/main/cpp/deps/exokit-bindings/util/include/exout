@@ -1,4 +1,0 @@
-#include <iostream>
-
-#define exout std::cout
-#define exerr std::cerr

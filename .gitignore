@@ -87,3 +87,4 @@ app/build
 .idea
 .externalNativeBuild
 .gradle
+node_modules/

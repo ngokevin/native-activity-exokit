@@ -32,7 +32,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -Wall -Werror")
 set(CMAKE_SHARED_LINKER_FLAGS
     "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
 
-add_library(native-activity SHARED main.cpp)
+add_library(native-activity SHARED ${CMAKE_SOURCE_DIR}/node_modules/exokit/main.cpp)
 
 target_include_directories(native-activity PRIVATE
     ${ANDROID_NDK}/sources/android/native_app_glue)
@@ -71,7 +71,7 @@ add_library( mlservo SHARED IMPORTED )
 set_target_properties( mlservo PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-browser-deps-magicleap/lib5/magicleap/libmlservo.so )
 
 include_directories( SYSTEM ${CMAKE_SOURCE_DIR}/node_modules/nan )
-include_directories( SYSTEM ${CMAKE_SOURCE_DIR}/deps/exokit-bindings/util/include )
+include_directories( SYSTEM ${CMAKE_SOURCE_DIR}/node_nodules/exokit/deps/exokit-bindings/util/include )
 include_directories( SYSTEM ${CMAKE_SOURCE_DIR}/.node-gyp/11.10.1/include/node )
 
 
