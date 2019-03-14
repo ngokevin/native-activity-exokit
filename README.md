@@ -2,7 +2,7 @@ Native Activity
 ===============
 
 ```
-npm run install --prefix app/src/main.cpp
+npm run install --prefix app/src/main/cpp
 ./gradlew build
 ```
 
