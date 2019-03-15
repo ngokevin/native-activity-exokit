@@ -1,8 +1,0 @@
-Executable : /home/chris/Android/Sdk/cmake/3.10.2.4988404/bin/cmake
-arguments : 
---build
-/home/chris/github/native-activity-exokit/app/.externalNativeBuild/cmake/debug/x86
---target
-native-activity
-jvmArgs : 
-
