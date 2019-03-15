@@ -1,1 +1,0 @@
-window.check(2);
