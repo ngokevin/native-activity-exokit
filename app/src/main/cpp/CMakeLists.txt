@@ -62,11 +62,6 @@ set_target_properties( opus PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/nod
 
 add_library( webrtc STATIC IMPORTED )
 set_target_properties( webrtc PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-webrtc-deps/lib/magicleap/libwebrtc.a )
-#add_library( OpenSLES SHARED IMPORTED )
-#set_target_properties( OpenSLES PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-webrtc-deps/lib/magicleap/libOpenSLES.so )
-
-add_library( OpenSLES SHARED IMPORTED )
-set_target_properties( OpenSLES PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/libnode.a/libOpenSLES.so )
 
 add_library( mlservo SHARED IMPORTED )
 set_target_properties( mlservo PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-browser-deps-magicleap/lib5/magicleap/libmlservo.so )
@@ -94,6 +89,6 @@ target_link_libraries(native-activity
     swresample
     opus
     webrtc
-#    OpenSLES
+    OpenSLES
 #    mlservo
         )
