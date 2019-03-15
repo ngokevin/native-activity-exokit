@@ -1,0 +1,11 @@
+{
+  "name": "exokit-android",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install": "npm install --ignore-scripts && ANDROID=1 node node_modules/exokit/scripts/preinstall.js"
+  },
+  "dependencies": {
+    "exokit": "github:ngokevin/exokit#android3"
+  }
+}
