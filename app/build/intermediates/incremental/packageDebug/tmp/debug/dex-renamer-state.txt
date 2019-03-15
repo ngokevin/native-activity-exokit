@@ -1,4 +1,0 @@
-#Tue Mar 12 16:51:29 CDT 2019
-base.0=/home/chris/github/native-activity-exokit/app/build/intermediates/dex/debug/mergeDexDebug/out
-path.0=classes.dex
-renamed.0=classes.dex
