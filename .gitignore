@@ -83,3 +83,10 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 local.properties
+
+app/build
+.idea
+app/.externalNativeBuild
+.gradle
+node_modules/
+package-lock.json
