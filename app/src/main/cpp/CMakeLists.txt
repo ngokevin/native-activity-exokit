@@ -15,9 +15,6 @@
 #
 
 cmake_minimum_required(VERSION 3.4.1)
-# add_compile_definitions(ANDROID)
-
-
 
 # build native_app_glue as a static lib
 set(${CMAKE_C_FLAGS}, "${CMAKE_C_FLAGS}")
@@ -36,6 +33,7 @@ add_library(native-activity SHARED main.cpp)
 
 target_include_directories(native-activity PRIVATE
     ${ANDROID_NDK}/sources/android/native_app_glue)
+
 
 
 add_library( node STATIC IMPORTED )
@@ -64,8 +62,11 @@ set_target_properties( opus PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/nod
 
 add_library( webrtc STATIC IMPORTED )
 set_target_properties( webrtc PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-webrtc-deps/lib/magicleap/libwebrtc.a )
+#add_library( OpenSLES SHARED IMPORTED )
+#set_target_properties( OpenSLES PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-webrtc-deps/lib/magicleap/libOpenSLES.so )
+
 add_library( OpenSLES SHARED IMPORTED )
-set_target_properties( OpenSLES PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-webrtc-deps/lib/magicleap/libOpenSLES.so )
+set_target_properties( OpenSLES PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/libnode.a/libOpenSLES.so )
 
 add_library( mlservo SHARED IMPORTED )
 set_target_properties( mlservo PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/node_modules/native-browser-deps-magicleap/lib5/magicleap/libmlservo.so )
@@ -76,10 +77,9 @@ include_directories( SYSTEM ${CMAKE_SOURCE_DIR}/.node-gyp/11.10.1/include/node )
 
 
 # add lib dependencies
-target_link_libraries(
-    native-activity
+target_link_libraries(native-activity
     android
-#    native_app_glue
+    native_app_glue
     EGL
     GLESv1_CM
     log

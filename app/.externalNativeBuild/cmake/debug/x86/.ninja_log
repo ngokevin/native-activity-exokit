@@ -1,9 +1,15 @@
 # ninja log v5
-1	110	1552344356	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	526b4544da44b322
-110	126	1552344356	libnative_app_glue.a	4d5f21dc2aa16949
-1	310	1552344356	CMakeFiles/native-activity.dir/main.cpp.o	922b0c24f7ea5ba1
-310	335	1552344356	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	d121e131c2837463
-1	1503	1552361114	CMakeFiles/native-activity.dir/main.cpp.o	10f1eda3e8cf9400
-1	23	1552426853	CMakeFiles/native-activity.dir/main.cpp.o	10f1eda3e8cf9400
-23	129	1552426853	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	8712748baa1a2e8
-0	167	1552427228	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	4f2ed12bad2b108
+1	164	1552691431	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	526b4544da44b322
+164	184	1552691431	libnative_app_glue.a	4d5f21dc2aa16949
+0	392	1552691432	CMakeFiles/native-activity.dir/main.cpp.o	922b0c24f7ea5ba1
+392	460	1552691432	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	d121e131c2837463
+1	128	1552691553	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	fb1b3d384b493a35
+128	153	1552691553	libnative_app_glue.a	4d5f21dc2aa16949
+0	337	1552691553	CMakeFiles/native-activity.dir/main.cpp.o	10f1eda3e8cf9400
+338	501	1552691554	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	effd2977238503bd
+7	213	1552691652	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	fb1b3d384b493a35
+213	238	1552691652	libnative_app_glue.a	4d5f21dc2aa16949
+1	397	1552691652	CMakeFiles/native-activity.dir/main.cpp.o	10f1eda3e8cf9400
+397	560	1552691652	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	effd2977238503bd
+2	177	1552691964	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	576a612d1efb5480
+0	122	1552692284	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/x86/libnative-activity.so	576a612d1efb5480

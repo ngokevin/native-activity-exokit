@@ -1,8 +1,14 @@
 # ninja log v5
-0	114	1552344356	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	9be94d81f618bd31
-115	140	1552344356	libnative_app_glue.a	e6da2355ad66620e
-0	369	1552344356	CMakeFiles/native-activity.dir/main.cpp.o	3bed6ed6bc314a53
-369	418	1552344356	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	9bf794d80f27e964
-1	16	1552426853	CMakeFiles/native-activity.dir/main.cpp.o	2087402ed1066143
-16	71	1552426853	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	ea0a0eb6c4cff9db
-0	92	1552427228	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	93315d16f12b7c80
+1	123	1552691432	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	9be94d81f618bd31
+124	147	1552691432	libnative_app_glue.a	e6da2355ad66620e
+0	349	1552691432	CMakeFiles/native-activity.dir/main.cpp.o	3bed6ed6bc314a53
+349	461	1552691432	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	9bf794d80f27e964
+1	107	1552691554	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	43861f50a7038229
+107	129	1552691554	libnative_app_glue.a	e6da2355ad66620e
+1	336	1552691554	CMakeFiles/native-activity.dir/main.cpp.o	2087402ed1066143
+336	456	1552691554	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	28c79b34ec479165
+1	90	1552691652	CMakeFiles/native_app_glue.dir/home/chris/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	43861f50a7038229
+91	111	1552691652	libnative_app_glue.a	e6da2355ad66620e
+0	318	1552691652	CMakeFiles/native-activity.dir/main.cpp.o	2087402ed1066143
+318	440	1552691652	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	28c79b34ec479165
+1	122	1552691964	/home/chris/github/native-activity-exokit/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-activity.so	f2945374dcdcbad1
