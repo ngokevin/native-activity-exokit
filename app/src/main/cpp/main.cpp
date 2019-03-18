@@ -56,15 +56,11 @@ void pumpStdout(int fd) {
       }
       break;
     }
-  }
+    engine->animating = 0;
+    engine->display = EGL_NO_DISPLAY;
+    engine->context = EGL_NO_CONTEXT;
+    engine->surface = EGL_NO_SURFACE;
 }
-void pumpStderr(int fd) {
-  char buf[STDIO_BUF_SIZE + 1];
-  ssize_t i = 0;
-  ssize_t lineStart = 0;
-
-  for (;;) {
-    ssize_t size = read(fd, buf + i, sizeof(buf) - i);
 
     if (size > 0) {
       for (ssize_t j = i; j < i + size; j++) {
@@ -90,8 +86,9 @@ void pumpStderr(int fd) {
         // ML_LOG_TAG(Error, LOG_TAG, "%s", buf);
       }
       break;
+
     }
-  }
+    return 0;
 }
 
 int main(int argc, char **argv) {
@@ -156,47 +153,87 @@ int main(int argc, char **argv) {
       // exout << "get arg " << i << ": " << argv[i] << std::endl;
     }
 
-    result = node::Start(argc, argv);
-  } else {
-    const char *jsString;
-    if (access("/package/app/index.html", F_OK) != -1) {
-      jsString = "/package/app/index.html";
-    } else {
-      jsString = "examples/realitytabs.html";
+
+
+/**
+ * This is the main entry point of a native application that is using
+ * android_native_app_glue.  It runs in its own thread, with its own
+ * event loop for receiving input events and doing other things.
+ */
+void android_main(struct android_app* state) {
+    struct engine engine;
+
+    memset(&engine, 0, sizeof(engine));
+    state->userData = &engine;
+    state->onAppCmd = engine_handle_cmd;
+    state->onInputEvent = engine_handle_input;
+    engine.app = state;
+
+    // Prepare to monitor accelerometer
+    engine.sensorManager = AcquireASensorManagerInstance(state);
+    engine.accelerometerSensor = ASensorManager_getDefaultSensor(
+                                        engine.sensorManager,
+                                        ASENSOR_TYPE_ACCELEROMETER);
+    engine.sensorEventQueue = ASensorManager_createEventQueue(
+                                    engine.sensorManager,
+                                    state->looper, LOOPER_ID_USER,
+                                    NULL, NULL);
+
+    if (state->savedState != NULL) {
+        // We are starting with a previous saved state; restore from it.
+        engine.state = *(struct saved_state*)state->savedState;
     }
 
-    const char *nodeString = "node";
-    const char *experimentalWorkerString = "--experimental-worker";
-    const char *dotString = ".";
-    char argsString[4096];
-    int i = 0;
+    // loop waiting for stuff to do.
 
-    char *nodeArg = argsString + i;
-    strncpy(nodeArg, nodeString, sizeof(argsString) - i);
-    i += strlen(nodeString) + 1;
+    while (1) {
+        // Read all pending events.
+        int ident;
+        int events;
+        struct android_poll_source* source;
 
-    char *experimentalWorkerArg = argsString + i;
-    strncpy(experimentalWorkerArg, experimentalWorkerString, sizeof(argsString) - i);
-    i += strlen(experimentalWorkerString) + 1;
+        // If not animating, we will block forever waiting for events.
+        // If animating, we loop until all events are read, then continue
+        // to draw the next frame of animation.
+        while ((ident=ALooper_pollAll(engine.animating ? 0 : -1, NULL, &events,
+                                      (void**)&source)) >= 0) {
 
-    char *dotArg = argsString + i;
-    strncpy(dotArg, dotString, sizeof(argsString) - i);
-    i += strlen(dotString) + 1;
+            // Process this event.
+            if (source != NULL) {
+                source->process(state, source);
+            }
 
-    char *jsArg = argsString + i;
-    strncpy(jsArg, jsString, sizeof(argsString) - i);
-    i += strlen(jsString) + 1;
+            // If a sensor has data, process it now.
+            if (ident == LOOPER_ID_USER) {
+                if (engine.accelerometerSensor != NULL) {
+                    ASensorEvent event;
+                    while (ASensorEventQueue_getEvents(engine.sensorEventQueue,
+                                                       &event, 1) > 0) {
+                        LOGI("accelerometer: x=%f y=%f z=%f",
+                             event.acceleration.x, event.acceleration.y,
+                             event.acceleration.z);
+                    }
+                }
+            }
 
-    char *argv[] = {nodeArg, experimentalWorkerArg, dotArg, jsArg};
-    size_t argc = sizeof(argv) / sizeof(argv[0]);
+            // Check if we are exiting.
+            if (state->destroyRequested != 0) {
+                engine_term_display(&engine);
+                return;
+            }
+        }
 
-    node::Start(argc, argv);
-  }
+        if (engine.animating) {
+            // Done with events; draw next animation frame.
+            engine.state.angle += .01f;
+            if (engine.state.angle > 1) {
+                engine.state.angle = 0;
+            }
 
-  close(1);
-  close(2);
-  stdoutReaderThread.join();
-  stderrReaderThread.join();
-
-  return result;
+            // Drawing is throttled to the screen update rate, so there
+            // is no need to do timing here.
+            engine_draw_frame(&engine);
+        }
+    }
 }
+//END_INCLUDE(all)
